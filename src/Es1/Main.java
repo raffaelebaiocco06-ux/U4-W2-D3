@@ -75,8 +75,10 @@ ES1.forEach(n-> System.out.println(n));
         ES2.forEach(n-> System.out.println(" nome del prodotto " + n));
 //es3
 
+Stream<String> ES3= products.stream().filter(p->p.getCategory().equals("Boys")).map(p->p.getName() +" "+ (p.getPrice()*0.90));
+ES3.forEach(n-> System.out.println("  prodotto e prezzo " + n));
 
-
+//es4
 
     }
 }
