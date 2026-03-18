@@ -29,5 +29,9 @@ public class Product {
     public String getCategory() {
         return category;
     }
+    @Override
+    public String toString() {
+        return "product{id=" + id + ", products=" + name + "}";
+    }
 }
 

@@ -1,6 +1,7 @@
 package Es1;
 import java.util.*;
 import java.util.stream.Stream;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args){
@@ -26,10 +27,56 @@ public class Main {
                 new Product(11, "Scarpe Boys", 80.0, "Boys"),
                 new Product(12, "Giacca Boys", 110.0, "Boys")
         );
+        List<Order> orders = Arrays.asList(
+
+                new Order(
+                        13,
+                        LocalDate.now(),
+                        LocalDate.now().plusDays(2),
+                        Arrays.asList(products.get(0), products.get(1)),
+                        c1
+                ),
+
+                new Order(
+                        24,
+                        LocalDate.now(),
+                        LocalDate.now().plusDays(3),
+                        Arrays.asList(products.get(4), products.get(6)),
+                        c2
+                ),
+
+                new Order(
+                        35,
+                        LocalDate.now(),
+                        LocalDate.now().plusDays(1),
+                        Arrays.asList(products.get(8), products.get(11)),
+                        c3
+                ),
+
+                new Order(
+                        46,
+                        LocalDate.now(),
+                        LocalDate.now().plusDays(4),
+                        Arrays.asList(products.get(0), products.get(7), products.get(10)),
+                        c1
+                )
+        );
+
+
+        //inizio della STREAM-------------------------------------------------------------------------------------------------------------------------------------------
         Stream<String> ES1= products.stream()
                 .filter(n -> n.getPrice() > 100 && n.getCategory().equals("Books"))
                 .map(n-> n.getName());
 ES1.forEach(n-> System.out.println(n));
+
+
+//es2
+        Stream<Order> ES2= orders.stream().filter( o-> o.getProducts().stream().anyMatch(p->p.getCategory().equals("Baby"))) ;
+        ES2.forEach(n-> System.out.println(" nome del prodotto " + n));
+//es3
+
+
+
 
     }
 }
