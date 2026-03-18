@@ -13,4 +13,25 @@ public class Customer {
         this.name=name;
         this.tier=tier;
     }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getTier() {
+        return tier;
+    }
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", tier=" + tier +
+                '}';
+    }
 }

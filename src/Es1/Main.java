@@ -6,8 +6,8 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args){
       Customer c1 =new Customer(1010,"Mauro",1);
-        Customer c2 =new Customer(2020,"Mara",1);
-        Customer c3 =new Customer(3030,"Maurizio",1);
+        Customer c2 =new Customer(2020,"Mara",2);
+        Customer c3 =new Customer(3030,"Maurizio",2);
 
 
 
@@ -80,5 +80,11 @@ ES3.forEach(n-> System.out.println("  prodotto e prezzo " + n));
 
 //es4
 
+        Stream<Order> ES4 = orders.stream()
+                .filter(o -> o.getCustomer().getTier() == 2
+                        && o.getOrderDate().isAfter(LocalDate.of(2026, 2, 1))
+                        || o.getdeliveryDate().isAfter(LocalDate.of(2026, 4, 1)));
+       Stream<String> ES4_2 = ES4.flatMap(o-> o.getProducts().stream().map(p-> p.getName()));
+        ES4_2.forEach(n-> System.out.println("  prodotto  " + n));
     }
 }

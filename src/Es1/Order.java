@@ -26,6 +26,9 @@ public class Order {
     public LocalDate getOrderDate() {
         return orderDate;
     }
+    public LocalDate getdeliveryDate() {
+        return deliveryDate;
+    }
     @Override
     public String toString() {
         return "Order{id=" + id + ", products=" + products + "}";
